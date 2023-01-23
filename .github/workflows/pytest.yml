@@ -30,4 +30,5 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           MY_TEST: ${{ secrets.MY_TEST }}
+          MY_TOKEN: ${{ secrets.MY_TOKEN }}
         run: poetry run pytest
