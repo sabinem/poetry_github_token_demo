@@ -1,0 +1,15 @@
+[tool.poetry]
+name = "poetry-github-token-demo"
+version = "0.1.0"
+description = ""
+authors = ["Sabine Maennel <sabine.maennel@gmail.com>"]
+readme = "README.md"
+packages = [{include = "poetry_github_token_demo"}]
+
+[tool.poetry.dependencies]
+python = "^3.8"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
