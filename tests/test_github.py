@@ -1,4 +1,4 @@
-from tools import github
+from poetry_github_token_demo import github
 
 
 def test_call_github_api():
