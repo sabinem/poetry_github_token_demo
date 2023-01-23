@@ -8,6 +8,7 @@ packages = [{include = "poetry_github_token_demo"}]
 
 [tool.poetry.dependencies]
 python = "^3.8"
+pytest = "^7.2.1"
 
 
 [build-system]
