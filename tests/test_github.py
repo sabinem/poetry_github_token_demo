@@ -8,3 +8,7 @@ def test_call_github_api():
 
 def test_secret():
     os.environ.get('MY_TEST') == 'test'
+
+
+def test_secret_my_token():
+    assert len(os.environ.get('MY_TOKEN')) >= 10
