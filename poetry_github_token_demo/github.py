@@ -5,21 +5,31 @@ import os
 load_dotenv()
 
 url = "https://api.github.com/repos/octocat/Spoon-Knife/issues"
-try:
-    github_token = os.environ.get("MY_TOKEN")
-    assert github_token
-    headers = {"Authorization": f"token {github_token}"}
 
-    login = requests.get("https://api.github.com/user", headers=headers)
-    assert login.json().get('login')
-except AssertionError:
-    headers = {}
-    msg = (
-        "Warning: the command will be run without github credentials.\n- This might "
-        "cause the github rate limit to be exceeded.\n- To fix this please look in the "
-        "readme on how to provide your github credentials"
-    )
-    print(msg)
+
+def set_auth():
+    try:
+        github_token = os.environ.get("ACCESS_TOKEN")
+        assert github_token
+        headers = {"Authorization": f"token {github_token}"}
+        login = requests.get("https://api.github.com/user", headers=headers)
+        assert login.json().get('login')
+    except AssertionError:
+        return {}
+    else:
+        return headers
+
+
+def check_auth():
+    try:
+        github_token = os.environ.get("ACCESS_TOKEN")
+        login = requests.get("https://api.github.com/user", headers=headers)
+        return login.json().get('login')
+    except KeyError:
+        return login.json().get('message')
+
+
+headers = set_auth()
 
 
 def f_auth(count):
